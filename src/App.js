@@ -21,7 +21,7 @@ const Box = styled.div`
     text-align: center;
     border: 1px solid black;
     border-radius: 10px;  
-    padding: 20px;
+    padding: 30px;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);  
 `
 const H1 = styled.h1`
@@ -34,7 +34,7 @@ const Search = styled.input`
     width: 200px;
     height: 25px;
     border: 1px solid darkred;
-    border-radius: 10px;
+    border-radius: 5px;
 `
 const City = styled.div`
     margin: 15px;
@@ -86,17 +86,17 @@ const App = () => {
 
     const [inquiry, setInquiry] = useState('')
     const [weather, setWeather] = useState({})
-    
+
     const search = async (e) => {
-        if(e.key === 'Enter') {
+        if (e.key === 'Enter') {
             const data = await searchWeather(inquiry)
             setWeather(data)
-            setInquiry('')  
+            setInquiry('')
         }
     }
 
     const API_KEY = '1df3d1228c1b47998ec8a6b9eb1e1536'
-    
+
     const searchWeather = async (query) => {
         const { data } = await axios.get("http://api.openweathermap.org/data/2.5/weather", {
             params: {
@@ -111,35 +111,36 @@ const App = () => {
 
     return (
         <Container>
-           <Video autoPlay loop muted src={background}></Video>
+            <Video autoPlay loop muted src={background}></Video>
             <Box>
-            <H1>PREVISÃO DO TEMPO</H1>
-            <Search type="text" placeholder="Procurar" value={inquiry} onKeyPress={search} onChange={(e) => setInquiry(e.target.value)} /> 
-                    {weather.main && ( 
-                <WealtherContainer>
-                    <City>
-                        {weather.name}
-                        <sup>{weather.sys.country}</sup>
-                    </City>
-                    <Temp>    
-                        {Math.round(weather.main.temp)} 
-                        <sup>&deg;C</sup>
-                    </Temp>
-                    <Img>
-                        <Icon src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
-                        <p>{weather.weather[0].description}</p>                   
-                    </Img>
-                    <Info> 
-                        <hr/>   
-                        <H2>Informações Adicionais</H2>
-                        <P>Temperatura máxima: {weather.main.temp_max}°</P>
-                        <P>Temperatura mínima: {weather.main.temp_min}°</P>
-                        <P> Unidade do ar: {weather.main.humidity}°</P>
-                        <P>Pressão atmosférica: {weather.main.pressure}hPa</P>
-                    </Info>
-                </WealtherContainer>
+                <H1>PREVISÃO DO TEMPO</H1>
+                <Search type="text" placeholder="Procurar" value={inquiry} onKeyPress={search} onChange={(e) => setInquiry(e.target.value)} />
+                {weather.main && (
+                    <WealtherContainer>
+                        <City>
+                            {weather.name}
+                            <sup>{weather.sys.country}</sup>
+                        </City>
+                        <Temp>
+                            {Math.round(weather.main.temp)}
+                            <sup>&deg;C</sup>
+                        </Temp>
+                        <Img>
+                            <Icon src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
+                            <p>{weather.weather[0].description}</p>
+                        </Img>
+                        <Info>
+                            <hr />
+                            <H2>Informações Adicionais</H2>
+                            <P>Temperatura máxima: {weather.main.temp_max}°</P>
+                            <P>Temperatura mínima: {weather.main.temp_min}°</P>
+                            <P> Unidade do ar: {weather.main.humidity}°</P>
+                            <P>Pressão atmosférica: {weather.main.pressure}hPa</P>
+                        </Info>
+                    </WealtherContainer>
                 )}
-            </Box>  
-        </Container>      
-)}
+            </Box>
+        </Container>
+    )
+}
 export default App

@@ -10,20 +10,6 @@ Weather API with openweathermap data. The app contains information about the min
 * Styled-Components
 * API
 
-## 🔧 Installations
-
-npm
-* npm install normalize.css
-* npm install react-icons --save
-* npm install --save styled-components
-* npm install axios
-
-yarn
-* npm install normalize.css
-* yarn add react-icons
-* yarn add styled-components
-* yarn add axios
-
 ## 🛠️ Built with
 
 Visual Studio Code
