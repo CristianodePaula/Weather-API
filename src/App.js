@@ -26,7 +26,9 @@ const Box = styled.div`
 `
 const H1 = styled.h1`
     font-size: 25px;
-    @media(max-width: 600px) { font-size: 20px } }
+    @media(max-width: 600px) { 
+        font-size: 20px 
+    } }
 `
 const WealtherContainer = styled.div``
 
@@ -49,38 +51,50 @@ const City = styled.div`
         color: #fff;
         background: #ff8c00;
     }
-    @media(max-width: 600px) { font-size: 15px } }
+    @media(max-width: 600px) { 
+        font-size: 15px 
+    } }
 `
 const Temp = styled.div`
     font-weight: 600;
     padding: 10px;
     font-size: 60px;
     color: white;
-    @media(max-width: 600px) { font-size: 50px } }
+    @media(max-width: 600px) {
+        font-size: 50px 
+    } }
 `
 const Img = styled.div`
     text-transform: capitalize;
     font-weight: 600;
     color: darkred;
 `
-const Icon = styled.img`
+const WeatherIcon = styled.img`
     height: 100px;
     widht: 100px;
     margin: -40px 0 -20px 0;
-    @media(max-width: 600px) { height: 80px; width: 80px; margin-top: -20px} }
+    @media(max-width: 600px) { 
+        height: 80px; 
+        width: 80px; 
+        margin-top: -20px
+    } }
 `
-const Info = styled.div`
+const Info = styled.span`
     hr { width: 220px }
 `
-const H2 = styled.div`
+const H2 = styled.h2`
     font-size: 20px;
     font-weight: 600;
-    @media(max-width: 600px) { font-size: 16px } }
+    @media(max-width: 600px) { 
+        font-size: 16px 
+    } }
 `
-const P = styled.div`
+const P = styled.p`
     font-size: 15px;
     margin: 10px;
-    @media(max-width: 600px) { font-size: 12px } }
+    @media(max-width: 600px) { 
+        font-size: 12px 
+    } }
 `
 const App = () => {
 
@@ -126,7 +140,7 @@ const App = () => {
                             <sup>&deg;C</sup>
                         </Temp>
                         <Img>
-                            <Icon src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
+                            <WeatherIcon src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
                             <p>{weather.weather[0].description}</p>
                         </Img>
                         <Info>
