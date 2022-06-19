@@ -19,7 +19,7 @@ Visual Studio Code
 
 ## 📌 Version
 
-0.2
+This repository is basically a backup. From version 0.1 onwards there may be commits in order to improve the code.
 
 ## ✒️ Author
 
